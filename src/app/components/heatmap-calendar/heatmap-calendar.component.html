@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="months"></div>
+
+  <div class="heatmap-days-container">
+    <div class="days">
+      <span>
+        Mon
+      </span>
+
+      <span>
+        Wed
+      </span>
+
+      <span>
+        Fri
+      </span>
+
+    </div>
+    <div class="heatmap" >
+      <ng-container *ngFor="let i of [].constructor(366)">
+        <div [style.background-color]="'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ')'"></div>
+      </ng-container>
+    </div>    
+  </div>
+  
+  <div class="trivia">
+    <a 
+    href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile" 
+    class="learn-link"
+    >
+      Learn how we count contributions</a>
+      <div class="legend">
+        wow
+      </div>
+  </div>
+</div>

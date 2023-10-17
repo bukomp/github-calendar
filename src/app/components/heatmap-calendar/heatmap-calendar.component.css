@@ -1,0 +1,105 @@
+.container {
+  /*
+  display: flex;
+  flex-wrap: wrap;
+*/
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --width-of-component: 1200px;
+  width: var(--width-of-component);
+  min-width: var(--width-of-component);
+  height: calc(var(--width-of-component) / 4.5);
+  background: white;
+  box-sizing: border-box;
+  overflow: auto;
+  max-width: 100%;
+
+  background: gold; /** <-- For the demo **/
+}
+
+.months {
+  height: 21%;
+  width: 87%;
+  margin-right: 5%;
+  margin-left: 8%;
+
+  background-color: blue;
+}
+
+.heatmap-days-container {
+  width: 95%;
+  height: 52%;
+  margin-right: 5%;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.days {
+  width: 8%;
+  height: 100%;
+  background-color: beige;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.days span {
+  --sizeOfText: calc(var(--width-of-component) * 0.012);
+  margin-left: 50%;
+  font-size: var(--sizeOfText);
+  line-height: var(--sizeOfText);
+}
+
+.heatmap {
+  height: 100%;
+  width: 92%;
+  min-width: 92%;
+
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.heatmap div {
+  width: 100%;
+  height: calc(100% * 0.8);
+  width: calc(100% * 0.8);
+  background-color: red;
+
+  align-self: center;
+}
+
+/* ****************************** Trvia block ****************************** */
+.trivia {
+  width: 100%;
+  height: 27%;
+  display: flex;
+
+  background-color: red;
+  --sizeOfText: calc(var(--width-of-component) * 0.018);
+}
+
+.learn-link {
+  font-size: var(--sizeOfText);
+  line-height: var(--sizeOfText);
+  text-decoration: none;
+  align-self: center;
+  margin-left: 5%;
+}
+
+.legend {
+  font-size: var(--sizeOfText);
+  line-height: var(--sizeOfText);
+  text-decoration: none;
+  align-self: center;
+  margin: auto;
+  margin-right: 5%;
+}

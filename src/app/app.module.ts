@@ -7,9 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeatmapCalendarComponent } from './components/heatmap-calendar/heatmap-calendar.component';
 import { DaySquareComponent } from './components/heatmap-calendar/components/day-square/day-square.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, HeatmapCalendarComponent, DaySquareComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MatCardModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

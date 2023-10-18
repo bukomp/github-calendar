@@ -74,6 +74,12 @@ export class GithubService {
     );
   }
 
+  /**
+   * Retrieves the commit date from the given URL.
+   *
+   * @param {string} url - The URL to fetch the commit date from.
+   * @return {Promise<string>} A promise that resolves to the commit date.
+   */
   private async getCommitDate(url: string): Promise<string> {
     const res = await lastValueFrom(
       this.http.get<{ commit: { author: { date: string } } }>(url)

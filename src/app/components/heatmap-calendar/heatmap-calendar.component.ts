@@ -36,6 +36,12 @@ export class HeatmapCalendarComponent implements OnInit {
 
   constructor(private githubService: GithubService) {}
 
+  /**
+   * Initializes data by setting `this.data` to `this.commits` or by calling `this.githubService.getPopulatedCommits(this.contributorsUsername)`.
+   * Combines commits to days by calling `this.combineCommitsToDays()`.
+   *
+   * @return {Promise<void>} This function does not return a value.
+   */
   async ngOnInit(): Promise<void> {
     // Initialize data
     this.data =
@@ -46,6 +52,12 @@ export class HeatmapCalendarComponent implements OnInit {
     this.days = this.combineCommitsToDays();
   }
 
+  /**
+   * Returns the color based on the amount of commits.
+   *
+   * @param {number} amountOfCommits - The number of commits.
+   * @return {string} The color based on the amount of commits.
+   */
   getColor(amountOfCommits: number): string {
     const maxCommits = this.getDayWithMostCommits();
     switch (true) {
@@ -65,9 +77,9 @@ export class HeatmapCalendarComponent implements OnInit {
   }
 
   /**
-   * Returns an array of the months in reverse order.
+   * Generates an array of reversed months.
    *
-   * @return {string[]} An array of the months in reverse order.
+   * @return {string[]} An array of reversed months.
    */
   getReversedMonths(): string[] {
     const currentMonth = new Date().getMonth();
@@ -77,7 +89,11 @@ export class HeatmapCalendarComponent implements OnInit {
     ).reverse();
   }
 
-  // This function combines commits into days
+  /**
+   * Combines commits into days and returns an array of CommitsPerDay objects.
+   *
+   * @return {CommitsPerDay[]} An array of CommitsPerDay objects representing the number of commits per day.
+   */
   combineCommitsToDays(): CommitsPerDay[] {
     // Calculate the number of days to process
     const daysToProcess = 371 - (7 - new Date().getDay());
@@ -127,6 +143,11 @@ export class HeatmapCalendarComponent implements OnInit {
     return groupedData;
   }
 
+  /**
+   * Retrieves the day with the most commits.
+   *
+   * @return {number} The number of commits on the day with the most commits.
+   */
   getDayWithMostCommits(): number {
     if (!this.days || !this.days.length) return 0;
     let maxCommitsDay: CommitsPerDay = this.days[0];

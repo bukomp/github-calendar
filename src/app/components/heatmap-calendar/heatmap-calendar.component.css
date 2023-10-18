@@ -1,8 +1,5 @@
 .container {
-  /*
-  display: flex;
-  flex-wrap: wrap;
-*/
+  /* This is the main container for the heatmap calendar */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
@@ -21,6 +18,7 @@
 }
 
 .months {
+  /* This is the container for the months */
   height: 21%;
   width: 87%;
   margin-right: 5%;
@@ -32,6 +30,7 @@
 }
 
 .months span {
+  /* This is the style for each month */
   --sizeOfText: calc(var(--width-of-component) * 0.014);
   font-size: var(--sizeOfText);
   line-height: var(--sizeOfText);
@@ -42,6 +41,7 @@
 }
 
 .heatmap-days-container {
+  /* This is the container for the days of the week */
   width: 95%;
   height: 52%;
   margin-right: 5%;
@@ -51,6 +51,7 @@
 }
 
 .days {
+  /* This is the container for each day of the week */
   width: 8%;
   height: 100%;
 
@@ -60,6 +61,7 @@
 }
 
 .days span {
+  /* This is the style for each day of the week */
   --sizeOfText: calc(var(--width-of-component) * 0.012);
   margin-left: 50%;
   font-size: var(--sizeOfText);
@@ -67,6 +69,7 @@
 }
 
 .heatmap {
+  /* This is the main heatmap grid */
   height: 100%;
   width: 92%;
   min-width: 92%;
@@ -82,6 +85,7 @@
 }
 
 .heatmap div {
+  /* This is the style for each cell in the heatmap */
   width: 100%;
   height: 100%;
 
@@ -90,6 +94,7 @@
 
 /* ****************************** Trvia block ****************************** */
 .trivia {
+  /* This is the container for the trivia section */
   width: 100%;
   height: 27%;
   display: flex;
@@ -98,6 +103,7 @@
 }
 
 .learn-link {
+  /* This is the style for the learn more link */
   font-size: var(--sizeOfText);
   line-height: var(--sizeOfText);
   letter-spacing: -0.5px;
@@ -107,6 +113,7 @@
 }
 
 .legend-container {
+  /* This is the container for the legend */
   font-size: var(--sizeOfText);
   line-height: var(--sizeOfText);
   text-decoration: none;
@@ -118,6 +125,7 @@
 }
 
 .legend {
+  /* This is the grid for the legend */
   width: calc(var(--width-of-component) * 0.11);
   display: grid;
   grid-template-columns: repeat(5, 1fr);

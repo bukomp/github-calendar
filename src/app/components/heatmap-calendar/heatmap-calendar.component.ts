@@ -46,7 +46,7 @@ export class HeatmapCalendarComponent implements OnInit {
     this.days = this.combineCommitsToDays();
   }
 
-  getColor(amountOfCommits: any): string {
+  getColor(amountOfCommits: number): string {
     const maxCommits = this.getDayWithMostCommits();
     switch (true) {
       case amountOfCommits === 0:
@@ -136,9 +136,5 @@ export class HeatmapCalendarComponent implements OnInit {
       }
     }
     return maxCommitsDay.amountOfCommits;
-  }
-
-  onChartHover($event: any): void {
-    // Handle chart hover event here
   }
 }

@@ -12,10 +12,11 @@
   height: calc(var(--width-of-component) / 4.5);
   background: white;
   box-sizing: border-box;
+  border: solid 1px #000;
+  border-radius: 13px;
   overflow: auto;
   max-width: 100%;
-
-  background: gold; /** <-- For the demo **/
+  color: #333;
 }
 
 .months {
@@ -24,7 +25,19 @@
   margin-right: 5%;
   margin-left: 8%;
 
-  background-color: blue;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.months span {
+  --sizeOfText: calc(var(--width-of-component) * 0.014);
+  font-size: var(--sizeOfText);
+  line-height: var(--sizeOfText);
+  vertical-align: bottom;
+  height: fit-content;
+  align-self: flex-end;
+  padding-bottom: 1rem;
 }
 
 .heatmap-days-container {
@@ -39,7 +52,6 @@
 .days {
   width: 8%;
   height: 100%;
-  background-color: beige;
 
   display: flex;
   justify-content: space-evenly;
@@ -72,7 +84,6 @@
   width: 100%;
   height: calc(100% * 0.8);
   width: calc(100% * 0.8);
-  background-color: red;
 
   align-self: center;
 }
@@ -83,13 +94,13 @@
   height: 27%;
   display: flex;
 
-  background-color: red;
-  --sizeOfText: calc(var(--width-of-component) * 0.018);
+  --sizeOfText: calc(var(--width-of-component) * 0.017);
 }
 
 .learn-link {
   font-size: var(--sizeOfText);
   line-height: var(--sizeOfText);
+  letter-spacing: -0.5px;
   text-decoration: none;
   align-self: center;
   margin-left: 5%;

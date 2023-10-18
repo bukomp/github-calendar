@@ -44,9 +44,9 @@ export class HeatmapCalendarComponent implements OnInit {
    */
   async ngOnInit(): Promise<void> {
     // Initialize data
-    this.data =
-      this.commits ||
-      (await this.githubService.getPopulatedCommits(this.contributorsUsername));
+    this.data = this.commits.length
+      ? this.commits
+      : await this.githubService.getPopulatedCommits(this.contributorsUsername);
 
     // Combine commits to days
     this.days = this.combineCommitsToDays();

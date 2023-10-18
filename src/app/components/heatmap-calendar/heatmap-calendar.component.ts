@@ -11,8 +11,28 @@ export class HeatmapCalendarComponent implements OnInit {
   @Input() commits: GitCommit[] = [];
   @Input() contributorsUsername: string = '';
 
+  @Input() colorNoActivity: string = 'lightgray';
+  @Input() colorLowActivity: string = '#9be9a8';
+  @Input() colorMediumActivity: string = '#40c463';
+  @Input() colorHighActivity: string = '#30a14e';
+  @Input() colorMaxActivity: string = '#216e39';
+
   data: GitCommit[] = [];
   days: CommitsPerDay[] | null = null;
+  months: string[] = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
 
   constructor(private githubService: GithubService) {}
 
@@ -30,18 +50,31 @@ export class HeatmapCalendarComponent implements OnInit {
     const maxCommits = this.getDayWithMostCommits();
     switch (true) {
       case amountOfCommits === 0:
-        return 'lightgray'; // Default color for no activity
+        return this.colorNoActivity; // Default color for no activity
       case amountOfCommits <= maxCommits / 4 && amountOfCommits > 0:
-        return '#9be9a8';
+        return this.colorLowActivity;
       case amountOfCommits <= (maxCommits / 4) * 2:
-        return '#40c463';
+        return this.colorMediumActivity;
       case amountOfCommits <= (maxCommits / 4) * 3:
-        return '#30a14e';
+        return this.colorHighActivity;
       case amountOfCommits <= maxCommits:
-        return '#216e39';
+        return this.colorMaxActivity;
       default:
-        return 'lightgray'; // Default color for no activity
+        return this.colorNoActivity; // Default color for no activity
     }
+  }
+
+  /**
+   * Returns an array of the months in reverse order.
+   *
+   * @return {string[]} An array of the months in reverse order.
+   */
+  getReversedMonths(): string[] {
+    const currentMonth = new Date().getMonth();
+    return Array.from(
+      { length: 12 },
+      (_, i) => this.months[(currentMonth - i + 12) % 12]
+    ).reverse();
   }
 
   // This function combines commits into days

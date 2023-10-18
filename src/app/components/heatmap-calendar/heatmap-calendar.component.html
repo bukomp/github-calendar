@@ -1,17 +1,9 @@
 <div class="container">
   <div class="months">
-    <span>Jan</span>
-    <span>Feb</span>
-    <span>Mar</span>
-    <span>Apr</span>
-    <span>May</span>
-    <span>Jun</span>
-    <span>Jul</span>
-    <span>Aug</span>
-    <span>Sep</span>
-    <span>Oct</span>
-    <span>Nov</span>
-    <span>Dec</span>
+    <ng-container *ngFor="let month of getReversedMonths()">
+      <span>{{month}}</span>
+    </ng-container>
+
   </div>
 
   <div class="heatmap-days-container">
@@ -46,12 +38,11 @@
     <div class="legend-container">
       Less
         <div class="legend">
-          <div [style.background-color]="'#ebedf0'"></div>          
-          <div [style.background-color]="'#9be9a8'"></div>         
-          <div [style.background-color]="'#40c463'"></div>         
-          <div [style.background-color]="'#30a14e'"></div>         
-          <div [style.background-color]="'#216e39'"></div>         
-
+          <div [style.background-color]="colorNoActivity"></div>          
+          <div [style.background-color]="colorLowActivity"></div>         
+          <div [style.background-color]="colorMediumActivity"></div>         
+          <div [style.background-color]="colorHighActivity"></div>         
+          <div [style.background-color]="colorMaxActivity"></div>         
         </div>
       More
     </div>

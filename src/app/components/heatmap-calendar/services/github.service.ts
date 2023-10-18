@@ -30,12 +30,20 @@ export class GithubService {
    * @param {string} username - The username of the user whose events are to be fetched.
    * @return {Promise<UserEvents[]>} - A promise that resolves to an array of UserEvents.
    */
-  private fetchUserEvents(username: string): Promise<UserEvents[]> {
-    return (
-      lastValueFrom(
-        this.http.get<UserEvents[]>(`${this.baseUrl}/users/${username}/events`)
-      ) || []
-    );
+  private async fetchUserEvents(username: string): Promise<UserEvents[]> {
+    try {
+      const events =
+        (await lastValueFrom(
+          this.http.get<UserEvents[]>(
+            `${this.baseUrl}/users/${username}/events`
+          )
+        )) || [];
+      console.log('Fetched user events:', events);
+      return events;
+    } catch (e) {
+      console.log('Error fetching user events:', e);
+      return [] as UserEvents[];
+    }
   }
 
   /**

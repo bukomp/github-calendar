@@ -10,10 +10,11 @@
   width: var(--width-of-component);
   min-width: var(--width-of-component);
   height: calc(var(--width-of-component) / 4.5);
+  gap: calc(var(--width-of-component) * 0.003);
   background: white;
   box-sizing: border-box;
-  border: solid 1px #000;
-  border-radius: 13px;
+  border: solid calc(var(--width-of-component) * 0.003) #ddd;
+  border-radius: calc(var(--width-of-component) * 0.006);
   overflow: auto;
   max-width: 100%;
   color: #333;
@@ -71,10 +72,10 @@
   min-width: 92%;
 
   display: grid;
+  gap: 3px;
   grid-template-columns: repeat(53, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+
   grid-auto-flow: column;
   align-items: center;
   justify-items: center;
@@ -82,8 +83,7 @@
 
 .heatmap div {
   width: 100%;
-  height: calc(100% * 0.8);
-  width: calc(100% * 0.8);
+  height: 100%;
 
   align-self: center;
 }
@@ -106,11 +106,23 @@
   margin-left: 5%;
 }
 
-.legend {
+.legend-container {
   font-size: var(--sizeOfText);
   line-height: var(--sizeOfText);
   text-decoration: none;
   align-self: center;
   margin: auto;
   margin-right: 5%;
+  display: flex;
+  flex-direction: row;
+}
+
+.legend {
+  width: calc(var(--width-of-component) * 0.11);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  column-gap: calc(var(--width-of-component) * 0.005);
+  justify-content: space-between;
+  margin: 0 3%;
 }

@@ -30,8 +30,9 @@
 
     </div>
     <div class="heatmap" >
-      <ng-container *ngFor="let i of [].constructor(366)">
-        <div [style.background-color]="'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ')'"></div>
+      <ng-container *ngIf="days"></ng-container>
+      <ng-container *ngFor="let day of days">
+        <div [style.background-color]="getColor(day.amountOfCommits)"></div>
       </ng-container>
     </div>    
   </div>
@@ -42,8 +43,17 @@
     class="learn-link"
     >
       Learn how we count contributions</a>
-      <div class="legend">
-        wow
-      </div>
+    <div class="legend-container">
+      Less
+        <div class="legend">
+          <div [style.background-color]="'#ebedf0'"></div>          
+          <div [style.background-color]="'#9be9a8'"></div>         
+          <div [style.background-color]="'#40c463'"></div>         
+          <div [style.background-color]="'#30a14e'"></div>         
+          <div [style.background-color]="'#216e39'"></div>         
+
+        </div>
+      More
+    </div>
   </div>
 </div>

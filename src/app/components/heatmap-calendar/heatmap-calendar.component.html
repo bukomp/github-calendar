@@ -24,7 +24,11 @@
     <div class="heatmap" >
       <ng-container *ngIf="days"></ng-container>
       <ng-container *ngFor="let day of days">
-        <div [style.background-color]="getColor(day.amountOfCommits)"></div>
+        <div 
+          [style.background-color]="getColor(day.amountOfCommits)"
+          matTooltip="{{day.date | date:'fullDate'}} commits: {{day.amountOfCommits}}"
+        >
+        </div>
       </ng-container>
     </div>    
   </div>

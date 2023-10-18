@@ -1,3 +1,10 @@
+.summ-of-contributions {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: calc(var(--width-of-component) * 0.044);
+  margin-bottom: calc(var(--width-of-component) * 0.034);
+}
+
 .container {
   /* This is the main container for the heatmap calendar */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",

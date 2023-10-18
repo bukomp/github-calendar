@@ -19,6 +19,8 @@ export class HeatmapCalendarComponent implements OnInit {
 
   data: GitCommit[] = [];
   days: CommitsPerDay[] | null = null;
+  summOfContributions: number = 0;
+
   months: string[] = [
     'Jan',
     'Feb',
@@ -50,6 +52,10 @@ export class HeatmapCalendarComponent implements OnInit {
 
     // Combine commits to days
     this.days = this.combineCommitsToDays();
+    this.summOfContributions = this.days.reduce(
+      (sum, day) => sum + day.amountOfCommits,
+      0
+    );
   }
 
   /**
